@@ -1,0 +1,46 @@
+  {% extends "header.html" %}
+  {% block title %}Unic Project - Admin{% endblock %}
+
+  {% block option %}
+  <li><a href="logout.php">LOGOUT</a></li>
+  {% endblock %}
+
+  {% block body %}
+
+  <div class="row">
+    <div class="hello col-xs-12 col-sm-12">
+      <div class="message">
+        <p>WELCOME</p><p>-ADMIN-</p>
+      </div>
+    </div>
+  </div>
+  
+  <div id="projects" class="projects row">
+    <h1>PROJECTS</h1><hr>
+    <h4>work - Trust - Team</h4>
+      <div class="project col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="button col-xs-12 col-sm-12 col-md-12">
+          <a href="add.php">ADD</a>
+        </div>
+        <table>
+        {% for project in projects %}
+        <tr><td>
+        <a href="#"><img src="{{project['image']}}" class="col-xs-12 col-sm-12 col-md-2"></a>
+        <span class="projectname col-xs-12 col-sm-12 col-md-9">
+            <a href="#" class="col-xs-12 col-sm-12 col-md-4">{{project['projectname']}}<hr></a>
+            <span class="col-xs-12 col-sm-12 col-md-12">          
+            Client : {{project['clientname']}}<br><br>
+            {{project['description']}}
+            </span>
+            <a href="edit.html" class="edit col-xs-12 col-sm-12 col-md-2">Edit</a>
+            <a href="#" class="edit col-xs-12 col-sm-12 col-md-2">Delete</a>
+        </span>
+        </td></tr>
+        {% endfor %}
+        
+        </table>
+
+
+      </div>
+  </div>
+  {% endblock %}

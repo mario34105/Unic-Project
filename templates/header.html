@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html>
 <head>
+	<title>{% block title %}{% endblock %}</title>
 
-  <title>Unic Project - Login</title>
-  <meta charset="utf-8">
+	  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="js/jquery.min.js">
@@ -14,12 +13,30 @@
 
   <script type="text/javascript">
 
+    $(document).ready(function() {
+
+      $(document).scroll(function(){
+
+        function opacity(){
+          document.getElementById("projects").style.opacity = "1";
+        }
+
         function transform(){
           document.getElementById("projects").style.transform = "translateX(0px)"; 
         }
-         setTimeout(transform,100);
 
-         $(document).ready(function(){
+        var docScroll = $(document).scrollTop(), 
+            boxCntOfset = $(".projects").offset().top - 400;
+     
+        if(docScroll >= boxCntOfset ){
+         setTimeout(opacity, 100);
+         setTimeout(transform,100);
+        }
+
+      })   
+    });
+
+     $(document).ready(function(){
   // Add smooth scrolling to all links
   $("a").on('click', function(event) {
 
@@ -50,10 +67,11 @@
     
 });
 
+
   </script>
 
 
-  <link rel="shortcut icon" type="image/png" href="image/mainpage/logoicon/favicon.ico">
+  <link rel="shortcut icon" type="image/png" href="image/mainpage/favicon.ico">
 
   <style type="text/css">
 
@@ -105,29 +123,59 @@
   .features a:hover{
     color:#f2a73e;
   }
+  .features .active {
+    color:#f2a73e;
+  }
+  .hello{
+    display: block;      
+    max-width:100%;
+    padding-top:150px;
+    padding-bottom:150px;
+    margin:0px;
+    background-image: url("image/mainpage/content/wallpaper-01.jpg");
+    color:white;
+    background-size: cover;
+    animation: fadein 2s;
+  }
   @keyframes fadein{
     from{opacity: 0};
     to{opacity: 1};
   }
+  .hello p{
+    font-size: 6vw;
+    font-weight: 500;
+    font-family: Oswald, sans-serif;
+  }
   .projects{
     width:80%;
     margin-top:100px;
-    opacity: 1;
+    opacity: 0;
     transition:1s;
     transform: translateX(-50px); 
-    animation: fadein 2s;
   }
   .projects h1{
     font-family: Oswald, sans-serif;
     font-size:6vw;
     letter-spacing: 5px;
   }
+  .projects b{
+    color:#3581fc;
+  }
+  .projects img{
+    display: block;
+    padding:0;
+    transition: all .2s ease;
+    overflow: hidden;
+  }
+  .projects img:hover{
+    transform:scale(0.99);
+  }
   .projects hr{
     width:23%;
     border:1px solid #f2a73e;
   }
   .project a{
-    font-size:100%;
+    font-size:130%;
     color:rgb(35,31,32);
     text-decoration: none;
     transition: 0.3s
@@ -141,25 +189,39 @@
   }
   .project span{
     font-size:110%;
-    color:rgb(35,31,32);
+    text-align: justify;
+    color:grey;
   }
   .projectname span{
     font-weight:500;
   }
-  .login input{
-  	border:0.5px solid grey;
-  	background:none;
-  	padding: 2% 0 2% 0;
-  	transition:0.3s;
-  }
-  .login input:hover{
-  	background-color:#3581fc;
-  	color:white;
-  	border:0.5px solid #3581fc;
-  }
   .project{
     margin-top:50px;
     font-family: Roboto;
+  }
+  .edit {
+    background-color: none;
+    border:1px solid black;
+    text-align: center;
+    margin-top:20px;
+    font-weight: 400;
+    margin-left: 2%;
+  }
+  .edit:hover{
+    border:0.5px solid #3581fc;
+  }
+  .button a{
+    padding:1% 10% 1% 10%;
+    background-color: none;
+    border:1px solid grey;
+    text-align: center;
+    margin-top:0px;
+    font-weight: 400;
+  }
+  .button a:hover{
+    background-color: #3581fc;
+    color:white;
+    border:1px solid #3581fc;
   }
   table{
     border-collapse: collapse;
@@ -193,52 +255,23 @@
   .footer a:hover{
     color:#f2a73e;
   }
+  {% block style %}
+  {% endblock %}
   </style>
-
-
-
 
 
 </head>
 <body>
 
-<center>
+	<center>
 
 <div class="container">
+	{% block body %}
 
-  
-  <div id="projects" class="projects row">
-    <h1>LOGIN</h1><hr>
-    <h4>Login - Enter - Awesome</h4>
-      <div class="project col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <table>
-
-        <tr><td>
-        <span class="projectname col-xs-12 col-sm-12 col-md-12">
-            <span class="col-xs-12 col-sm-12 col-md-6">USERNAME :<hr></span>
-            <input type="text" name="username" class="col-xs-12 col-sm-12 col-md-12">
-        </span>
-        </td></tr>
-
-        <tr><td>
-        <span class="projectname col-xs-12 col-sm-12 col-md-12">
-            <span class="col-xs-12 col-sm-12 col-md-6">PASSWORD :<hr></span>
-            <input type="password" name="password" class="col-xs-12 col-sm-12 col-md-12">
-        </span>
-        </td></tr>
-        
-         <tr><td>
-        <span class="login col-xs-12 col-sm-12 col-md-12">
-            <input type="submit" id="login" value="LOGIN" class="col-xs-12 col-sm-12 col-md-12">
-        </span>
-        </td></tr>
-        </table>
-      </div>
-  </div>
-
-  <div class="row">
+	{% endblock %}
+	<div class="row">
     <div class="header col-xs-12 col-sm-12 col-md-12">
-      <a href="" class="col-xs-12 col-sm-4 col-md-4">
+      <a href="http://localhost/unic/" class="col-xs-12 col-sm-4 col-md-4">
       <img src="image/mainpage/header/logo-01.svg"> <span> | UNIC PROJECT</span></a>
       <div class="features col-xs-12 col-sm-6 col-md-6">
         <ul>
@@ -246,12 +279,15 @@
           <li><a href="service.html">SERVICES</a></li>
           <li><a href="about.html">ABOUT</a></li>
           <li><a href="contact.html">CONTACT</a></li>
+          {% block option %}
+          {% endblock %}
         </ul>
       </div>
     </div>
   </div>
 
-<div class="row">
+
+  <div class="row">
     <div class="footer col-xs-12 col-sm-12">
      <div class="foot col-xs-12 col-sm-12 col-md-4">
      <a href="#"><img src="image/mainpage/footer/line.svg"><h5>marioyaputra26</h5></a><br><br></div>
@@ -262,31 +298,9 @@
     </div>
   </div>
 
-</div>
+  </div>
 </center>
-
-<script type="text/javascript">
-  $("#login").on("click",function(event){
-    var username = $(this).parent().parent().parent().parent().find("input[type=text]").val();
-    var password = $(this).parent().parent().parent().parent().find("input[type=password]").val();
-    console.log($(this).parent().parent().parent());
-    console.log(username);
-    console.log(password);
-    $.ajax({
-      type:"GET",
-      url:"login.php?username="+username+"&password="+password ,
-
-      success: function(data){
-        if(data == 0){
-          alert("Username or Password Wrong");
-        }
-        else{
-          location.replace("admin.html");
-        }
-      }
-    })
-  });
-</script>
-
+{% block script %}
+{% endblock %}
 </body>
 </html>
