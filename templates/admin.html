@@ -33,7 +33,7 @@
             {{project['description']}}
             </span>
             <a href="edit.php?p={{project['id']}}" class="edit col-xs-12 col-sm-12 col-md-2">Edit</a>
-            <a href="delete.php?p={{project['id']}}" class="edit col-xs-12 col-sm-12 col-md-2">Delete</a>
+            <a id ="delete" onclick="return confirm('Are you sure ?')?deletePro(this, {{project['id']}}):false;" class="edit col-xs-12 col-sm-12 col-md-2">Delete</a>
         </span>
         </td></tr>
         {% endfor %}
@@ -44,3 +44,23 @@
       </div>
   </div>
   {% endblock %}
+
+  {% block script %}
+<script type="text/javascript">
+  function deletePro(div, id){
+    
+    console.log(div.parentNode.parentNode.parentNode);
+    var child = div.parentNode.parentNode.parentNode;
+    var parent = div.parentNode.parentNode.parentNode.parentNode;
+    $.ajax({
+      type:"POST",
+      url:"delete.php?p=" + id ,
+      success: function(data){
+          if(data == 0){
+            parent.removeChild(child);
+            }  
+      }
+    })
+  }
+</script>
+{% endblock %}
