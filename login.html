@@ -1,38 +1,6 @@
 {% extends "header.html" %}
 {% block title %} Unic Project - Login {% endblock %}
   
-{% block style%} 
-
-.login input{
-    border:0.5px solid grey;
-    background:none;
-    padding: 2% 0 2% 0;
-    transition:0.3s;
-  }
-  .login input:hover{
-    background-color:#3581fc;
-    color:white;
-    border:0.5px solid #3581fc;
-  }
-
-{% endblock %}
-
-{% block script1 %}
- $(document).ready(function() {
-
-  function opacity(){
-          document.getElementById("projects").style.opacity = "1";
-        }
-
-  function transform(){
-    document.getElementById("projects").style.transform = "translateX(0px)";
-    }
-    setTimeout(opacity, 100);
-    setTimeout(transform,100);
-        });
-
-{% endblock %}
-
 
 {% block body %}
   
@@ -85,7 +53,7 @@
           alert("Username or Password Wrong");
         }
         else{
-          location.replace("admin.php");
+          location.replace("admin.html");
         }
       }
     })

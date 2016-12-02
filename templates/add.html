@@ -17,6 +17,24 @@
 
 {% endblock %}
 
+
+{% block script1 %}
+ $(document).ready(function() {
+
+  function opacity(){
+          document.getElementById("projects").style.opacity = "1";
+        }
+
+  function transform(){
+    document.getElementById("projects").style.transform = "translateX(0px)";
+    }
+    setTimeout(opacity, 100);
+    setTimeout(transform,100);
+        });
+
+{% endblock %}
+
+
   {% block option %}
   <li><a href="logout.php">LOGOUT</a></li>
   {% endblock %}
@@ -27,7 +45,7 @@
     <h4>Ready - Type - Post</h4>
       <div class="project col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <table>
-        <form method="GET" action="add.php">
+        <form method="post" action="add.php" enctype="multipart/form-data">
         <tr><td>
         <span class="projectname col-xs-12 col-sm-12 col-md-12">
             <span class="col-xs-12 col-sm-12 col-md-6">PROJECT NAME :<hr></span>
@@ -52,7 +70,7 @@
         <tr><td>
         <span class="projectname col-xs-12 col-sm-12 col-md-12">
             <span class="col-xs-12 col-sm-12 col-md-6">PROJECT IMAGE :<hr></span>
-            <input type="file" id="file" name="file" class="col-xs-12 col-sm-12 col-md-12">
+            <input type="file" name="images" class="col-xs-12 col-sm-12 col-md-12" accept=".jpg,.png,.gif">
         </span>
         </td></tr>
         

@@ -2,6 +2,7 @@
 	
 	session_start();
 
+	require_once "twig.php";
 	require_once "db.php";
 
 	if(isset($_GET["username"]) && isset($_GET["password"])){
@@ -25,10 +26,10 @@
 	}
 	else{
 		if(isset($_SESSION["username"])){
-			header("location:admin.html");
+			header("location:admin.php");
 		}
 		else{
-			header("location:login.html");
+			echo $twig->render("login.html");
 		}
 	}
  ?>

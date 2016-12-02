@@ -9,9 +9,9 @@
   <link rel="stylesheet" type="text/css" href="js/jquery.min.js">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-  <script type="text/javascript">
+<script type="text/javascript">
+{% block script1 %}
+  
 
     $(document).ready(function() {
 
@@ -67,11 +67,11 @@
     
 });
 
-
+{% endblock %}
   </script>
 
 
-  <link rel="shortcut icon" type="image/png" href="image/mainpage/favicon.ico">
+  <link rel="shortcut icon" type="image/png" href="image/mainpage/logoicon/favicon.ico">
 
   <style type="text/css">
 
@@ -145,6 +145,32 @@
     font-size: 6vw;
     font-weight: 500;
     font-family: Oswald, sans-serif;
+  }
+  .hello .hellobutton{
+    margin-top:50px;
+    text-decoration: none;
+  }
+  .hellobutton1{
+    background-color:#46d4ea;
+    color:white;
+    transition:0.3s;
+    padding:1% 6% 1% 6%;
+  }
+  .hellobutton1:hover{
+    text-decoration: none;
+    background-color:#35b7cc;
+    color:white;
+  }
+  .hellobutton2{
+    background-color:#f2a73e;
+    color:white;
+    transition:0.3s;
+    padding:1% 6% 1% 6%;
+  }
+  .hellobutton2:hover{
+    text-decoration: none;
+    background-color:#d6902f;
+    color:white;
   }
   .projects{
     width:80%;
@@ -275,7 +301,7 @@
       <img src="image/mainpage/header/logo-01.svg"> <span> | UNIC PROJECT</span></a>
       <div class="features col-xs-12 col-sm-6 col-md-6">
         <ul>
-          <li><a href="project.html">PROJECTS</a></li>
+          <li><a href="project.php">PROJECTS</a></li>
           <li><a href="service.html">SERVICES</a></li>
           <li><a href="about.html">ABOUT</a></li>
           <li><a href="contact.html">CONTACT</a></li>

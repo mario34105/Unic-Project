@@ -25,15 +25,15 @@
         <table>
         {% for project in projects %}
         <tr><td>
-        <a href="#"><img src="{{project['image']}}" class="col-xs-12 col-sm-12 col-md-2"></a>
+        <a href="{{project['image']}}"><img src="{{project['image']}}" class="col-xs-12 col-sm-12 col-md-2"></a>
         <span class="projectname col-xs-12 col-sm-12 col-md-9">
-            <a href="#" class="col-xs-12 col-sm-12 col-md-4">{{project['projectname']}}<hr></a>
+            <a href="{{project['image']}}" class="col-xs-12 col-sm-12 col-md-4">{{project['projectname']}}<hr></a>
             <span class="col-xs-12 col-sm-12 col-md-12">          
             Client : {{project['clientname']}}<br><br>
             {{project['description']}}
             </span>
-            <a href="edit.html" class="edit col-xs-12 col-sm-12 col-md-2">Edit</a>
-            <a href="#" class="edit col-xs-12 col-sm-12 col-md-2">Delete</a>
+            <a href="edit.php?p={{project['id']}}" class="edit col-xs-12 col-sm-12 col-md-2">Edit</a>
+            <a href="delete.php?p={{project['id']}}" class="edit col-xs-12 col-sm-12 col-md-2">Delete</a>
         </span>
         </td></tr>
         {% endfor %}
