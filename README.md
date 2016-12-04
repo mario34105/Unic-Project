@@ -4,8 +4,11 @@
 
 # Introduction
 
-Unic Project is originally my design agency's name. The purpose of the website is to give people to
-see our awesome projects that we have done until now.
+Unic Project is a creative agency based in Medan, Indonesia.
+We do Graphic Design , Branding & Advertising Design.
+We serve our clients with unlimited of revisions.
+Satisfaction of our clients & the awesome result is our only priority & our satisfaction too.
+The purpose of the website is to give people to see our awesome projects that we have done until now.
 
 # Components
 
